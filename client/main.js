@@ -22,23 +22,24 @@ const getFortune = () => {
     });
 };
 
-const addCompliment = () => {
-    axios.post("http://localhost:4000/api/compliment/")
-    .then(res => {
-        const data = res.data;
-        alert('You have added a compliment!');
-})
-};
+// const addCompliment = () => {
+//     axios.post("http://localhost:4000/api/compliment/")
+//     .then(res => {
+//         const data = res.data;
+//         alert('You have added a compliment!');
+// })
+// };
 
-const addName = (event) => {{
+const addName = (event) => {
     event.preventDefault()
 
     let newName = { 
        name: nameInput.value
     }
+    axios.post("http://localhost:4000/api/names", newName)
+    .then(() => {})
+    .catch(() => {})
 
-    axios.post('/api/names')
-}
 };
 
 complimentBtn.addEventListener('click', getCompliment)
@@ -46,5 +47,5 @@ fortuneBtn.addEventListener('click', getFortune)
 submitname.addEventListener('submit', addName)
 
 
-addComplimentBtn.addEventListener('submit', addCompliment) //I do not know how to make this work. I tried creating a form to add new compliments to the existing random compliments array but cannot work out the backend. 
+// addComplimentBtn.addEventListener('submit', addCompliment) //I do not know how to make this work. I tried creating a form to add new compliments to the existing random compliments array but cannot work out the backend. 
 

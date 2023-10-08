@@ -30,5 +30,15 @@ module.exports = {
         value1.push(newCompliment)
         res.send(newCompliment)
     
+    },
+
+    addName: (req, res) => {
+
+        let {name}  = req.body
+
+        database.push({name})
+        
+        console.log(database)
     }
 }
+    
