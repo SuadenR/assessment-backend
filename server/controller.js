@@ -27,16 +27,21 @@ module.exports = {
            
         const value1 = input1.value;
      
-        value1.push(newCompliment)
+        newCompliment.push(value1)
+
         res.send(newCompliment)
+        
+        console.log(newCompliment)
     
     },
 
     addName: (req, res) => {
 
-        let {name}  = req.body
+        let database = []
 
-        database.push({name})
+        let name  = req.body
+
+        database.push(name)
         
         console.log(database)
     }
