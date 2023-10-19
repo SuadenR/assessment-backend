@@ -3,6 +3,7 @@ const addComplimentBtn = document.getElementById("Compliment-Input")
 const fortuneBtn = document.getElementById("fortuneButton")
 const submitname = document.getElementById("submit-name-button")
 const nameInput = document.getElementById("name-input")
+let userinput = document.getElementById("Compliment-Input")
 
 const errCallback = err => console.log(err)
 
@@ -25,14 +26,14 @@ const getFortune = () => {
 const addCompliment = () => {
     axios.post("http://localhost:4000/api/compliment/")
     .then(res => {
-        const data = res.data;
+        const newCompliment = res.data;
         alert('You have added a compliment!');
 })
 };
 
 const addName = (event) => {
     event.preventDefault()
-
+    
     let newName = { 
        name: nameInput.value
     }

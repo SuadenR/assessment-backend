@@ -1,7 +1,9 @@
+const compliments = ["Gee, you're a smart cookie!", "Cool shirt!", "Your Javascript skills are stellar."];
+
 module.exports = {
 
     getCompliment: (req, res) => {
-        const compliments = ["Gee, you're a smart cookie!", "Cool shirt!", "Your Javascript skills are stellar."];
+        
       
         // choose random compliment
         let randomIndex = Math.floor(Math.random() * compliments.length);
@@ -19,31 +21,20 @@ module.exports = {
         res.send(randomFortunes);
     },
 
-    addCompliment: (req, res) => {
+    addCompliment(req, res) {
 
-        const newCompliment = [];
+        let compliment = req.body
 
-        const input1 = document.getElementById("Compliment-Input");  
-           
-        const value1 = input1.value;
-     
-        newCompliment.push(value1)
-
-        res.send(newCompliment)
-        
-        console.log(newCompliment)
-    
+        compliments.push(compliment);
     },
 
     addName: (req, res) => {
 
-        let database = []
-
         let name  = req.body
 
-        database.push(name)
+        compliments.post(name)
         
-        console.log(database)
+        
     }
 }
     

@@ -5,11 +5,11 @@ app.use(cors());
 
 app.use(express.json());
 
-const { getCompliment, getFortune, addName } = require('./controller');
+const { getCompliment, getFortune, addName, addCompliment } = require('./controller');
 
 app.post("/api/names", addName);
 app.get("/api/fortune", getFortune);
 app.get("/api/compliment", getCompliment);
-// app.get("/api/compliment", addCompliment); // this is the non working button refer to bottom of main.js
+app.post("/api/compliment", addCompliment); 
 
 app.listen(4000, () => console.log("Server running on 4000"));
