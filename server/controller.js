@@ -3,9 +3,7 @@ const compliments = ["Gee, you're a smart cookie!", "Cool shirt!", "Your Javascr
 module.exports = {
 
     getCompliment: (req, res) => {
-        
-      
-        // choose random compliment
+     
         let randomIndex = Math.floor(Math.random() * compliments.length);
         let randomCompliment = compliments[randomIndex];
       
@@ -21,20 +19,12 @@ module.exports = {
         res.send(randomFortunes);
     },
 
-    addCompliment(req, res) {
-
-        let compliment = req.body
-
-        compliments.push(compliment);
-    },
-
-    addName: (req, res) => {
-
-        let name  = req.body
-
-        compliments.post(name)
+    addCompliment: (req, res) => {
         
-        
-    }
-}
-    
+        let newCompliment = req.body;
+        console.log(newCompliment)
+        compliments.push(newCompliment);
+        console.log('yay') //I added this to make sure this was working. I don't understand why it's outputting an object into the array.
+        res.status(200).send(compliments);
+      }
+    };

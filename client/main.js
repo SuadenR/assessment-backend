@@ -1,9 +1,7 @@
 const complimentBtn = document.getElementById("complimentButton")
-const addComplimentBtn = document.getElementById("Compliment-Input")
 const fortuneBtn = document.getElementById("fortuneButton")
-const submitname = document.getElementById("submit-name-button")
-const nameInput = document.getElementById("name-input")
-let userinput = document.getElementById("Compliment-Input")
+const newComplimentInput = document.getElementById("newComplimentInput")
+const newComplimentBtn = document.getElementById("newComplimentBtn")
 
 const errCallback = err => console.log(err)
 
@@ -23,30 +21,23 @@ const getFortune = () => {
     });
 };
 
-const addCompliment = () => {
-    axios.post("http://localhost:4000/api/compliment/")
-    .then(res => {
-        const newCompliment = res.data;
-        alert('You have added a compliment!');
-})
-};
+const addCompliment = (event) => {
+    event.preventDefault();
+  
+    const data = { compliments: newComplimentInput.value};
+  
+    axios.post("http://localhost:4000/api/compliment", data)
+      .then(res => {
+        const compliments = res.data;
+        console.log(compliments);
+      })
+      .catch(err => {
+        console.error(err);
+      });
+  };
 
-const addName = (event) => {
-    event.preventDefault()
-    
-    let newName = { 
-       name: nameInput.value
-    }
-    axios.post("http://localhost:4000/api/names", newName)
-    .then(() => {})
-    .catch(() => {})
-
-};
-
+newComplimentBtn.addEventListener('click', addCompliment) //I don't understand why the output of this is an object, but it places the new compliment in the array as I wanted it to.
 complimentBtn.addEventListener('click', getCompliment)
 fortuneBtn.addEventListener('click', getFortune)
-submitname.addEventListener('submit', addName)
 
-
-addComplimentBtn.addEventListener('submit', addCompliment) //I do not know how to make this work. I tried creating a form to add new compliments to the existing random compliments array but cannot work out the backend. 
 
