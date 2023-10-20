@@ -24,7 +24,7 @@ module.exports = {
         let newCompliment = req.body;
         console.log(newCompliment)
         compliments.push(newCompliment);
-        console.log('yay') //I added this to make sure this was working. I don't understand why it's outputting an object into the array.
+        // console.log('yay')
         res.status(200).send(compliments);
       }
     };
