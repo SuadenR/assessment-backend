@@ -21,10 +21,15 @@ module.exports = {
 
     addCompliment: (req, res) => {
         
-        let newCompliment = req.body;
+        let newCompliment = req.body.compliments;
+
         console.log(newCompliment)
+
         compliments.push(newCompliment);
-        // console.log('yay')
+
+        console.log('yay')
+
         res.status(200).send(compliments);
+
       }
     };
